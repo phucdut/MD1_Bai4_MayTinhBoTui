@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #btn {
+            display: grid;
+            justify-content: center;
+            align-content: center;
+            min-height: 100vh;
+            /*100 view height -> fill 100%*/
+            grid-template-columns: repeat(4, 100px);
+            grid-template-rows: minmax(100px, auto) repeat(5, 100px);
+        }
+        button{
+            width: 60px;
+            height: 40px;
+            font-size: 20px;
+            padding-bottom: 2px;
+            padding-left: 10px;
+
+        }
+        input{
+            text-align: right;
+            width:280px;
+            height: 50px;
+            font-size: 30px;
+            border: 4px;
+            padding-right: 10px;
+        }
+        table {
+
+            width: 290px;
+            height: 290px;
+            background-color:burlywood;
+        }
+
+        td{
+            text-align: center;
+        }
+        body{
+            margin: 350px 350px 450px 850px;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+<div id="btn">
+    <table border="1">
+        <tr>
+            <td colspan="4"><input type="text" id="calculator"/></td>
+        </tr>
+        <tr>
+            <td><button  type="button" onclick="inputNumber('1')">1</button></td>
+            <td><button  type="button" onclick="inputNumber('2')">2</button></td>
+            <td><button  type="button" onclick="inputNumber('3')">3</button></td>
+            <td><button  type="button" onclick="inputNumber('+')">+</button></td>
+        </tr>
+        <tr>
+            <td><button type="button" onclick="inputNumber('4')">4</button></td>
+            <td><button type="button" onclick="inputNumber('5')">5</button></td>
+            <td><button type="button" onclick="inputNumber('6')">6</button></td>
+            <td><button type="button" onclick="inputNumber('-')">-</button></td>
+        </tr>
+        <tr>
+            <td><button type="button" onclick="inputNumber('7')" >7</button></td>
+            <td><button type="button" onclick="inputNumber('8')">8</button></td>
+            <td><button type="button" onclick="inputNumber('9')">9</button></td>
+            <td><button type="button" onclick="inputNumber('*')">*</button></td>
+        </tr>
+        <tr>
+            <td><button type="button" onclick="clears()">AC</button></td>
+            <td><button type="button" onclick="inputNumber('0')">0</button></td>
+            <td><button type="button" onclick="result()">=</button></td>
+            <td><button type="button" onclick="inputNumber('/')">/</button></td>
+        </tr>
+    </table>
+</div>
+<script>
+
+    function inputNumber(input){
+        document.getElementById("calculator").value+=input;
+
+    }
+    function result(){
+        let input = document.getElementById('calculator').value;
+
+        let result =  eval(input);
+        document.getElementById('calculator').value = result;
+    }
+    function clears(){
+
+        document.getElementById('calculator').value = '';
+    }
+</script>
+</body>
+</html>
